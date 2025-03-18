@@ -8,12 +8,14 @@ import ListItemButton from "@mui/material/ListItemButton";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import CounterIcon from "@mui/icons-material/AddCircle";
+import RocketIcon from "@mui/icons-material/Rocket";
 
 function NavigationList({ toggleDrawer }) {
   const menuItems = [
     { text: "Home", icon: <HomeIcon />, path: "/" },
     { text: "Imaginary", icon: <InfoIcon />, path: "/imaginary" },
     { text: "Counter", icon: <CounterIcon />, path: "/counter" },
+    { text: "StarShip", icon: <RocketIcon />, path: "/starship" },
   ];
 
   return (
