@@ -157,8 +157,6 @@ To deploy your Vite-based React project (located in the `/mathsWeb` directory of
 - **Base Directory**: Since your project is in a subdirectory (`/mathsWeb`), ensure you set the **Base directory** correctly in Netlify's build settings.
 - **Shared Dependencies**: If your monorepo has shared dependencies, ensure they are properly installed and referenced in your project.
 
-
-
 ### Example Netlify Configuration
 
 If you want to use a `netlify.toml` file for more control over the build process, create a `netlify.toml` file in the root of your monorepo with the following content:
@@ -178,8 +176,14 @@ Push this file to your repository, and Netlify will use these settings during de
 - **Environment Variables**: Ensure all required environment variables are set in Netlify.
 - **Caching**: If builds are slow, enable caching for `node_modules` in Netlify's build settings.
 
----
+## Example
 
-By following these steps, your Vite-based React project in the `/mathsWeb` directory of your monorepo will be successfully deployed to Netlify! 🚀
+By following these steps, your Vite-based React project in the `/mathsWeb` directory of your monorepo will be successfully deployed to Netlify. Check this exmple:
 
 ![](https://www.dropbox.com/scl/fi/4il6k10l1efmy72w878e1/IMAGE-001053.png?rlkey=8id880dngmtekj26omjopf8c2&st=cu9lcyru&dl=1)
+
+
+
+to deploy just when the commits and pushes goes to the project and not to `/doc` folder:
+
+![](https://www.dropbox.com/scl/fi/mpcpkuhf2abpid3lbx7yd/IMAGE-001054.png?rlkey=3iahf3jp73gux89f34g3sihks&st=z1cocaho&dl=1)
