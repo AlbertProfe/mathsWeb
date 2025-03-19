@@ -180,11 +180,11 @@ Push this file to your repository, and Netlify will use these settings during de
 
 By following these steps, your Vite-based React project in the `/mathsWeb` directory of your monorepo will be successfully deployed to Netlify. Check this exmple:
 
-![](https://www.dropbox.com/scl/fi/4il6k10l1efmy72w878e1/IMAGE-001053.png?rlkey=8id880dngmtekj26omjopf8c2&st=cu9lcyru&dl=1)
+![](https://res.cloudinary.com/dduecunc9/image/upload/v1742389816/IMAGE-001053_ppkple.png)
 
 to deploy just when the commits and pushes goes to the project and not to `/doc` folder:
 
-![](https://www.dropbox.com/scl/fi/mpcpkuhf2abpid3lbx7yd/IMAGE-001054.png?rlkey=3iahf3jp73gux89f34g3sihks&st=z1cocaho&dl=1)
+![](https://res.cloudinary.com/dduecunc9/image/upload/v1742389816/IMAGE-001054_n4nkft.png)
 
 if the previous config does not work override it with /netifly.toml at root of React's project:
 
