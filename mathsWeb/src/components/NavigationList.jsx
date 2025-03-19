@@ -16,6 +16,7 @@ function NavigationList({ toggleDrawer }) {
     { text: "Imaginary", icon: <InfoIcon />, path: "/imaginary" },
     { text: "Counter", icon: <CounterIcon />, path: "/counter" },
     { text: "StarShip", icon: <RocketIcon />, path: "/starship" },
+    { text: "LaunchesTable", icon: <RocketIcon />, path: "/launchestable" },
   ];
 
   return (

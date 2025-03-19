@@ -14,6 +14,8 @@ import Home from "./pages/Home";
 import Imaginary from "./pages/Imaginary";
 import Counter from "./pages/Counter";
 import StarShip from "./pages/StarShip";
+import LaunchesTable from "./pages/LaunchesTable";
+
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -72,7 +74,8 @@ function App() {
                   <Counter count={count} incrementCounter={incrementCounter} />
                 }
               />
-              <Route path="/starship" element={<StarShip />} />{" "}
+              <Route path="/starship" element={<StarShip />} />
+              <Route path="/launchestable" element={<LaunchesTable />} />
             </Routes>
           </Container>
         </Box>

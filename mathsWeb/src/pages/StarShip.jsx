@@ -44,12 +44,9 @@ function StarShip() {
         setLoading(true);
         const response = await axios.get('https://api.spacexdata.com/v4/rockets');
         // Filter for Starship rockets (this is a simplified approach, actual filtering may vary)
-        const starshipRockets = response.data.filter(rocket => 
-          rocket.name.toLowerCase().includes('starship') || 
-          rocket.name.toLowerCase().includes('falcon') || 
-          rocket.name.toLowerCase().includes('bfr')
-        ).slice(0, 8);
+        const starshipRockets = response.data;
         setRockets(starshipRockets);
+        console.log(response.data);
         setLoading(false);
       } catch (err) {
         setError('Failed to fetch rocket data');
