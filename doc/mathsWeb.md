@@ -2,6 +2,12 @@
 
 ## Links & Intro
 
+- [MUI Theming](https://mui.com/material-ui/customization/theming/)
+
+- [Color](https://m2.material.io/inline-tools/color/)
+
+- [MUI Theme Creator](https://zenoo.github.io/mui-theme-creator/)
+
 We'll create a React project:
 
 - with Material UI
@@ -12,17 +18,17 @@ This will include a counter functionality with `useState`, three pages (Home, Im
 
 ## Components
 
-The project includes:
+The project init draft includes:
 
 1. **Theme Selection**:
    
-   - Three themes: Light, Dark, and Purple
-   - Theme provider implementation
-   - Theme selection from the drawer/sidebar
+   - Three themes: `Light`, `Dark`, and `Purple`
+   - <mark>Theme provider</mark> implementation
+   - Theme selection from the `drawer/sidebar`
 
 2. **Navigation**:
    
-   - Responsive drawer/sidebar with navigation links
+   - Responsive **drawer/sidebar** with navigation links
    - Routes for Home, Imaginary, and Counter pages
 
 3. **Counter Functionality**:
@@ -39,7 +45,7 @@ The project includes:
 
 5. **Material UI Components**:
    
-   - AppBar, Drawer, Cards, Grids, Typography, etc.
+   - `AppBar`, `Drawer`, `Cards`, `Grids`, `Typography`, etc.
    - Responsive design for different screen sizes
 
 To set up and run this project:
@@ -59,25 +65,131 @@ To set up and run this project:
 
 Our approach follows the React principle of "lifting state up" by managing theme selection at the top level while delegating theme definition to a specialized component. <mark>It's a textbook example of good component composition in React</mark>.
 
-How the Theme Provider Works
+How the **Theme Provider** Works
 
 1. **Theme Definition**:
    
-   - In ThemeProvider.jsx, we define multiple theme objects using MUI's createTheme function
-   - Each theme specifies colors for primary and secondary elements, background colors, and mode (light/dark)
-   - These themes are organized in an object with keys like 'light', 'dark', 'purple', and 'green'
+   - In `ThemeProvider.jsx`, we define multiple theme objects using MUI's `createTheme` function
+   - Each theme specifies colors for:
+     - `primary` and `secondary` elements,
+     - `background` colors,
+     - and mode (light/dark)
+   - These themes are organized in an object with keys like '`light`', '`dark`', '`purple`', and '`green`'
 
 2. **Component Structure**:
    
-   - The ThemeProvider component wraps MUI's ThemeProvider
+   - The `ThemeProvider` component wraps MUI's `ThemeProvider`
    - It takes two props: `children` (components to be rendered) and `currentTheme` (selected theme name)
    - It dynamically selects the appropriate theme object based on currentTheme
 
 3. **Theme Application**:
    
    - In App.jsx, we maintain a state variable `currentTheme`
-   - We wrap the entire application in our custom ThemeProvider, passing this state variable
-   - When the theme changes in the sidebar dropdown, App.jsx updates currentTheme, and ThemeProvider applies the new theme
+   - We wrap the entire application in our custom `ThemeProvider`, passing this state variable
+   - When the theme changes in the sidebar dropdown, `App.js`x updates `currentTheme`, and `ThemeProvider` applies the new theme
+
+```jsx
+//App.jsx
+import ThemeProvider from "./components/ThemeProvider";
+// more imports
+function App() {
+  // hooks
+  // toggleDrawer
+
+  const handleThemeChange = (event) => {
+    setCurrentTheme(event.target.value);
+  };
+
+
+  return (
+    <ThemeProvider currentTheme={currentTheme}>
+      <CssBaseline />
+      <Router>
+        // ...
+      </Router>
+    </ThemeProvider>
+  );
+}
+
+export default App;
+```
+
+```jsx
+//components/ThemeProvider.jsx
+// components/ThemeProvider.jsx
+import React from 'react';
+import { ThemeProvider as MuiThemeProvider, createTheme } from '@mui/material/styles';
+
+// Define themes
+const lightTheme = createTheme({
+  palette: {
+    mode: 'light',
+    primary: {
+      main: '#1976d2',
+    },
+    secondary: {
+      main: '#dc004e',
+    },
+  },
+});
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#90caf9',
+    },
+    secondary: {
+      main: '#f48fb1',
+    },
+  },
+});
+
+const purpleTheme = createTheme({
+  palette: {
+    mode: 'light',
+    primary: {
+      main: '#9c27b0',
+    },
+    secondary: {
+      main: '#f50057',
+    },
+  },
+});
+
+const greenTheme = createTheme({
+  palette: {
+    mode: 'light',
+    primary: {
+      main: '#2e7d32',
+    },
+    secondary: {
+      main: '#ff9800',
+    },
+    background: {
+      default: '#f1f8e9',
+      paper: '#ffffff',
+    },
+  },
+});
+
+function ThemeProvider({ children, currentTheme }) {
+  const themes = {
+    light: lightTheme,
+    dark: darkTheme,
+    purple: purpleTheme,
+    green: greenTheme,
+  };
+
+  return (
+    <MuiThemeProvider theme={themes[currentTheme]}>
+      {children}
+    </MuiThemeProvider>
+  );
+}
+
+export default ThemeProvider;
+```
 
 ### Why It's So Useful
 
@@ -579,7 +691,6 @@ mkdir -p src/pages
 
 # Start the development server
 npm start
-
 ```
 
 ## Decouple sidebar
@@ -720,8 +831,6 @@ This decoupling offers several benefits:
 - **Cleaner Code**: Each file is shorter and more focused
 
 The functionality remains identical to the original component, but the code is now more modular and follows better React component composition patterns.
-
-
 
 ## Lifting State Up
 
