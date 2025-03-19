@@ -46,6 +46,7 @@ function Home() {
           autoPlay
           muted
           loop
+          poster='/place-holder-hero.png'
           style={{
             position: "absolute",
             top: 0,
