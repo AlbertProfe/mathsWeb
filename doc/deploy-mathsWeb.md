@@ -182,8 +182,20 @@ By following these steps, your Vite-based React project in the `/mathsWeb` direc
 
 ![](https://www.dropbox.com/scl/fi/4il6k10l1efmy72w878e1/IMAGE-001053.png?rlkey=8id880dngmtekj26omjopf8c2&st=cu9lcyru&dl=1)
 
-
-
 to deploy just when the commits and pushes goes to the project and not to `/doc` folder:
 
 ![](https://www.dropbox.com/scl/fi/mpcpkuhf2abpid3lbx7yd/IMAGE-001054.png?rlkey=3iahf3jp73gux89f34g3sihks&st=z1cocaho&dl=1)
+
+if the previous config does not work override it with /netifly.toml at root of React's project:
+
+```toml
+[build]
+  base = "/"
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF mathsWeb/"
+  command = "npm run build"
+  publish = "mathsWeb/dist/"
+
+[build.environment]
+  NODE_VERSION = "19"  # Match our React version
+
+```
