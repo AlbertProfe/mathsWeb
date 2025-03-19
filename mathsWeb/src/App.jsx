@@ -15,6 +15,7 @@ import Imaginary from "./pages/Imaginary";
 import Counter from "./pages/Counter";
 import StarShip from "./pages/StarShip";
 import LaunchesTable from "./pages/LaunchesTable";
+import StarShipDetail from "./pages/StarShipDetail";
 
 
 function App() {
@@ -76,6 +77,7 @@ function App() {
               />
               <Route path="/starship" element={<StarShip />} />
               <Route path="/launchestable" element={<LaunchesTable />} />
+              <Route path="/rockets/:id" element={<StarShipDetail />} />
             </Routes>
           </Container>
         </Box>
